@@ -179,12 +179,25 @@ kubectl apply -f jenkins-volume.yaml
 kubectl apply -f deployment.yaml
 ```
 
+### helm workflow
+
+```bash
+kind create cluster
+
+kubectl create ns jenkins
+```
+```bash
+helm install <name> jenkins/jenkins -n jenkins
+```
+
+```bash
+printf $(kubectl get secret --namespace jenkins jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
+
+pTA148012entdO4uW14qR5
+```
 
 
 
-
-
-## Runtime parameter mit values und freitext input feld
 ## pipeline templating
 ## build agent setup
 ## pipeline trigger
@@ -217,7 +230,7 @@ Jenkins provides a hashicorp vault plugin, as well as a azure key vault plugion 
         }
     }
 ```
-## deployment
+## deployment pipeline
 - set up multiple pipelines via ui or groovy script
 ```yaml
 pipeline {
@@ -234,3 +247,8 @@ pipeline {
     }
 }
 ```
+
+## Runtime parameter mit values und freitext input feld
+
+
+# Jenkins and Job Builder Plugin
