@@ -34,3 +34,19 @@ Jenkins provides a hashicorp vault plugin, as well as a azure key vault plugion 
     }
 ```
 ## deployment
+- set up multiple pipelines via ui or groovy script
+```yaml
+pipeline {
+    agent any
+
+    stages {
+        stage ('Deployment Stage') {
+            steps {
+                withMaven(maven : 'maven_3_5_0') {
+                    sh 'mvn deploy'
+                }
+            }
+        }
+    }
+}
+```
