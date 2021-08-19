@@ -1,5 +1,7 @@
 # Jenkins on Kubernetes
 
+Testing Continous Integration and Continous Delivery on Kubernetes via jenkins.
+Code used for deployment found in this [GitRepo](https://github.com/StraysWonderland/simple-java-maven-app/blob/master/jenkins/scripts/deliver.sh)
 ## Workflow
 
 start by creating a kind cluster with 2 workers
