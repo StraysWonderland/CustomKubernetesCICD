@@ -192,12 +192,23 @@ kubectl create ns jenkins
 helm install <name> jenkins/jenkins -n jenkins
 ```
 
+### access jenkins
+
+- get admin password for jenkins
 ```bash
-printf $(kubectl get secret --namespace jenkins jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
+printf $(kubectl get secret --namespace devops-tools jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
 
-pTA148012entdO4uW14qR5
+NTZoblFhOWdqa2pMWlBxQ3NLMkVQNA==
+
+OR TO COPY DIRECTLY TO CLIPBOARD
+
+echo $(kubectl get secret --namespace devops-tools jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode) | clipboard
+
 ```
-
+- forward jenkins ports
+```bash
+ kubectl -n devops-tools port-forward jenkins-0 8080:8080
+```
 
 
 ## pipeline templating
