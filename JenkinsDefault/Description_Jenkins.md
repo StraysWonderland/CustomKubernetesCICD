@@ -189,7 +189,7 @@ kind create cluster
 kubectl create ns jenkins
 ```
 ```bash
-helm install <name> jenkins/jenkins -n jenkins
+helm install <name> jenkins/jenkins -n devops-tools
 ```
 
 ### access jenkins
