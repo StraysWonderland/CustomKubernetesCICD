@@ -4,8 +4,11 @@ Testing Continous Integration and Continous Delivery on Kubernetes via jenkins.
 Code used for deployment found in this [GitRepo](https://github.com/StraysWonderland/simple-java-maven-app/blob/master/jenkins/scripts/deliver.sh)
 ## Workflow
 
-start by creating a kind cluster with 2 workers
-using the following yaml configuration file
+start by either starting minikube cluster with additional ressources
+```bash
+minikube start -memory 8192
+```
+ or creating a kind cluster with 2 workers using the following yaml configuration file
 ```yaml 
 #three node cluster config
 kind: Cluster
@@ -15,7 +18,6 @@ nodes:
     - role: worker
     - role: worker
 ```
-
 and following bash command
 ```bash
 kind create cluster --config kind-config.yaml
@@ -60,7 +62,7 @@ subjects:
   namespace: devops-tools
 ```
 
-create volume for persistens storage
+create volume for persistent storage
 ```yaml
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
