@@ -265,3 +265,25 @@ pipeline {
 
 ## Runtime parameter mit values und freitext input feld
 
+# ArgoCD on Kubernetes
+
+#   workflow
+following the [getting started](https://argoproj.github.io/argo-cd/getting_started/)
+
+preferably also via done helm on minikube via
+```bash
+helm repo add argo https://argoproj.github.io/argo-helm
+"argo" has been added to your repositories
+
+helm install --name devops-tools argo/argo-cd
+```
+or via install.yml provided in argocd github repo
+```bash
+kubectl apply -n devops-tools -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+```
+
+port forwarding
+```bash
+kubectl port-forward svc/argo-cd-argocd-server 8080:443
+```
+# Jenkins and Job Builder Plugin
